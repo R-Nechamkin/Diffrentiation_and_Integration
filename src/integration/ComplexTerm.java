@@ -2,6 +2,10 @@ package integration;
 
 import java.util.*;
 
+/*This class holds @code{term}s multiplied by each other. 
+ * 
+ */
+
 public class ComplexTerm extends Term {
 	private ArrayList<Polynomial> terms;
 	
