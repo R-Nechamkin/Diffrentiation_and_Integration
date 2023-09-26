@@ -4,7 +4,6 @@ public class Term {
 	private double coefficient = 1;
 	private double exponent = 1;
 	
-	
 	/**
 	 * @param coefficient
 	 * @param exponent
@@ -13,9 +12,10 @@ public class Term {
 		this.coefficient = coefficient;
 		this.exponent = exponent;
 	}
-	
+
+
 	public Term() {
-		
+		this(1, 1);
 	}
 	
 	/**
@@ -42,6 +42,7 @@ public class Term {
 	public void setExponent(double exponent) {
 		this.exponent = exponent;
 	}
+
 	
 	@Override
 	public String toString() {
