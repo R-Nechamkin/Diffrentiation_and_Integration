@@ -15,15 +15,23 @@ public class ComplexTerm extends Term {
 	
 	public ComplexTerm(double coefficient, double exponent, List<Term> terms) {
 		super(coefficient, exponent);
-		if (terms == null)
-			throw new IllegalArgumentException("Your terms argument is null");
+//		if (terms == null)
+	//		throw new IllegalArgumentException("Your terms argument is null");
 		for (Term t: terms) {
 			this.terms.add(t);
 		}
 	}
 	
+	public ComplexTerm() {
+		this(1,1,null);
+	}
+
 	public void addTerm(Term t) {
 		terms.add(t);
+	}
+	
+	public List<Term> getTerms(){
+		return new ArrayList<Term>(terms);
 	}
 	
 	public String toString() {
