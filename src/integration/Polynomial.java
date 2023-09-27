@@ -1,34 +1,54 @@
 package integration;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Polynomial extends Term{
-	private ArrayList<Term> terms;
+	private List<Term> terms = new ArrayList<>();
 	
-	
+
+	public Polynomial(List<Term> terms) {
+		this(1,1,terms);
+	}
 	
 	/**
 	 * @param terms   an {@code ArrayList} of terms
 	 * @param exponent a double holding an exponent of the entire polynomial
 	 * @param coefficient
 	 */
-	public Polynomial(ArrayList<Term> terms) {
-		this.terms = terms;
+	public Polynomial(double coefficient, double exponent, List<Term> terms) {
+		super(coefficient, exponent);
+		if (terms == null)
+			throw new IllegalArgumentException("Your terms argument is null");
+		for (Term t: terms) {
+			this.terms.add(t);
+		}
 	}
 	
-	public Polynomial(double coefficient, double exponent, ArrayList<Term> terms) {
-		super(coefficient, exponent);
-		this.terms = terms;
+	public Polynomial() {
+		this(1,1, null);
+	}
+	
+	public void addTerm(Term t) {
+		terms.add(t);
 	}
 
-
+	public List<Term> getTerms(){
+		return new ArrayList<Term>(terms);
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(terms.get(0));
 		for (int i = 1; i < terms.size(); i++) {
-			sb.append(" + " + terms.get(i));
+			if (terms.get(i).getCoefficient() < 0){
+				sb.append(" - ");
+			}
+			else {
+				sb.append(" + ");
+			}
+			sb.append("(" + terms.get(i) + ")");
 		}
 		if (getExponent() != 1 || getCoefficient() != 1) {
 			sb.insert(0,"(");

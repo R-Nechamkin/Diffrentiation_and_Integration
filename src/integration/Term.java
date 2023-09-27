@@ -43,7 +43,7 @@ public class Term {
 		this.exponent = exponent;
 	}
 
-	
+	/*
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("x");
@@ -55,4 +55,5 @@ public class Term {
 		}
 		return sb.toString();
 	}
+	*/
 }
