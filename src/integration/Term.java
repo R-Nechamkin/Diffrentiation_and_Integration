@@ -44,6 +44,22 @@ public class Term<T> {
 		this.exponent = exponent;
 	}
 
+
+	/**
+	 * @return the inner
+	 */
+	public T getInner() {
+		return inner;
+	}
+
+
+	/**
+	 * @param inner the inner to set
+	 */
+	public void setInner(T inner) {
+		this.inner = inner;
+	}
+
 	/*
 	@Override
 	public String toString() {
