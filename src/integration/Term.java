@@ -1,21 +1,22 @@
 package integration;
 
-public class Term {
+public class Term<T> {
 	private double coefficient = 1;
 	private double exponent = 1;
+	private T inner;
 	
 	/**
 	 * @param coefficient
 	 * @param exponent
 	 */
-	public Term(double coefficient, double exponent) {
+	public Term(T inner, double coefficient, double exponent) {
 		this.coefficient = coefficient;
 		this.exponent = exponent;
 	}
 
 
-	public Term() {
-		this(1, 1);
+	public Term(T inner) {
+		this(inner,1, 1);
 	}
 	
 	/**
@@ -46,7 +47,7 @@ public class Term {
 	/*
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("x");
+		StringBuilder sb = new StringBuilder("inner");
 		if (exponent != 1) {
 			sb.append("^" + exponent);
 		}

@@ -26,7 +26,6 @@ public class Polynomial extends Term{
 	}
 	
 	public Polynomial() {
-		this(1,1, null);
 	}
 	
 	public void addTerm(Term t) {

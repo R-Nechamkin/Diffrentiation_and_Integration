@@ -32,6 +32,7 @@ public class ClientCode {
 		
 		System.out.println(v4);
 		System.out.println(Differentiation.differentiate(v4));
+		System.out.println(Differentiation.differentiate(p1));
 	}
 
 }
