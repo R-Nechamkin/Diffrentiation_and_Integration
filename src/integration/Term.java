@@ -12,6 +12,7 @@ public class Term<T> {
 	public Term(T inner, double coefficient, double exponent) {
 		this.coefficient = coefficient;
 		this.exponent = exponent;
+		this.inner = inner;
 	}
 
 
