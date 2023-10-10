@@ -1,4 +1,4 @@
-package integration;
+package terms;
 
 public class Term {
 	private double coefficient = 1;

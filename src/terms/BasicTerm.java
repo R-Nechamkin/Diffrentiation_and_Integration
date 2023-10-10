@@ -1,4 +1,4 @@
-package integration;
+package terms;
 
 public class BasicTerm extends Term{
 	private char variable;

@@ -1,4 +1,4 @@
-package integration;
+package terms;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  */
 
 public class ComplexTerm extends Term {
-	private List<Term> terms = new ArrayList<>();
+	private List<Term> inner = new ArrayList<>();
 	
 	public ComplexTerm(List<Term> terms) {
 		this(1,1,terms);
@@ -18,7 +18,7 @@ public class ComplexTerm extends Term {
 	if (terms == null)
 			throw new IllegalArgumentException("Your terms argument is null");
 		for (Term t: terms) {
-			this.terms.add(t);
+			this.inner.add(t);
 		}
 	}
 	
@@ -26,18 +26,22 @@ public class ComplexTerm extends Term {
 	}
 
 	public void addTerm(Term t) {
-		terms.add(t);
+		inner.add(t);
+	}
+	
+	public List<Term> getInner() {
+		return inner;
 	}
 	
 	public List<Term> getTerms(){
-		return new ArrayList<Term>(terms);
+		return new ArrayList<Term>(inner);
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(terms.get(0));
-		for (int i = 1; i < terms.size(); i++) {
-			sb.append(" * " + terms.get(i) + "");
+		sb.append(inner.get(0));
+		for (int i = 1; i < inner.size(); i++) {
+			sb.append(" * " + inner.get(i) + "");
 		}
 		if (getExponent() != 1 || getCoefficient() != 1) {
 			sb.insert(0,"(");

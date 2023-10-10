@@ -1,4 +1,4 @@
-package integration;
+package terms;
 
 import static org.junit.jupiter.api.Assertions.*;
 

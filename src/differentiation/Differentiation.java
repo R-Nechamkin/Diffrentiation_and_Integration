@@ -1,6 +1,11 @@
-package integration;
+package differentiation;
 
 import java.util.List;
+
+import terms.BasicTerm;
+import terms.ComplexTerm;
+import terms.Polynomial;
+import terms.Term;
 
 public class Differentiation {
 

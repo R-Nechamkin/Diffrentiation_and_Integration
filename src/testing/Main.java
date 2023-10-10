@@ -1,9 +1,15 @@
-package integration;
+package testing;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientCode {
+import differentiation.Differentiation;
+import terms.BasicTerm;
+import terms.ComplexTerm;
+import terms.Polynomial;
+import terms.Term;
+
+public class Main {
 
 	public static void main(String[] args) {
 		Term v1 = new BasicTerm('x',3,4);  //3x^4
