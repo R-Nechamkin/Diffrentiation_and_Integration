@@ -1,13 +1,13 @@
 package terms;
 
-public class BasicTerm extends Term{
+public class Monomial extends Term{
 	private char variable;
 	
-	public BasicTerm (char variable) {
+	public Monomial (char variable) {
 		this.variable = variable;
 	}
 	
-	public BasicTerm (char variable, double coefficient, double exponent) {
+	public Monomial (char variable, double coefficient, double exponent) {
 		super(coefficient, exponent);
 		this.variable = variable;
 	}
