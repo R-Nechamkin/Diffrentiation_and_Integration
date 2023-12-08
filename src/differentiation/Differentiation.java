@@ -2,7 +2,7 @@ package differentiation;
 
 import java.util.List;
 
-import terms.BasicTerm;
+import terms.Monomial;
 import terms.ComplexTerm;
 import terms.Polynomial;
 import terms.Term;
@@ -10,15 +10,21 @@ import terms.Term;
 public class Differentiation {
 
 	
-	public static Term differentiate(Term t) {
+	public static Term differentiate(Term t) throws CannotDifferentiateException{
 		Term diff = null;
-		if (t instanceof BasicTerm) {
-			diff = powerRule((BasicTerm) t);
+		if (t instanceof Monomial) {
+			diff = powerRule((Monomial) t);
+		}
+		else if (t instanceof Polynomial) {
+			diff = differentiate((Polynomial)t);
+		}
+		else if (t instanceof ComplexTerm) {
+			diff = differentiate((ComplexTerm) t);
 		}
 		return diff;
 	}
 	
-	public static Term differentiate (Polynomial t) {
+	public static Term differentiate (Polynomial t) throws CannotDifferentiateException{
 		Polynomial diff = new Polynomial();
 		List<Term> terms = t.getTerms();
 		for (int i = 0; i < terms.size(); i++) {
@@ -27,16 +33,17 @@ public class Differentiation {
 		return diff;
 	}
 	
-	public static Term differentiate (ComplexTerm t) {
-		Term diff = null;
+	public static Term differentiate (ComplexTerm t) throws CannotDifferentiateException {
 		if (t.getTerms().size() == 2) {
-			diff = productRule(t);
+			return productRule(t);
 		}
-		return diff;
+		else {
+			throw new CannotDifferentiateException(true);
+		}
 	}
 	
-	public static BasicTerm powerRule(BasicTerm t) {
-		BasicTerm diff = new BasicTerm(t.getVariable());
+	public static Monomial powerRule(Monomial t) {
+		Monomial diff = new Monomial(t.getVariable());
 		diff.setExponent(t.getExponent() - 1);
 		diff.setCoefficient(t.getCoefficient() * t.getExponent());
 		
@@ -49,7 +56,7 @@ public class Differentiation {
 	 * @param t
 	 * @return
 	 */
-	public static Term productRule(ComplexTerm t) {
+	public static Term productRule(ComplexTerm t) throws CannotDifferentiateException{
 		Polynomial diff = new Polynomial();
 		List<Term> terms = t.getTerms();
 		for (int i = 0; i < terms.size(); i++) {
